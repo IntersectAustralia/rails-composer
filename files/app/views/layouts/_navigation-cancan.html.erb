@@ -1,4 +1,8 @@
-<%= link_to "Home", root_path, :class => 'brand' %>
+<ul class="nav navbar-nav">
+  <li>
+    <%= link_to "Home", root_path, :class => 'brand' %>
+  </li>
+</ul>
 <ul class="nav navbar-nav navbar-right">
   <% if user_signed_in? %>
     <% if current_user.has_role? :admin %>
@@ -8,7 +12,10 @@
     <% end %>
   <% end %>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#">Dropdown trigger</a>
+    <a data-toggle="dropdown" href="#">
+      <%= current_user %>
+      <span class="caret"></span>
+    </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
       <% if user_signed_in? %>
         <li>
