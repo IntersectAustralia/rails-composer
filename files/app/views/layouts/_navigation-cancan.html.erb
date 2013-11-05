@@ -13,7 +13,11 @@
   <% end %>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#">
-      <%= current_user %>
+      <% if user_signed_in? %>
+        <%= current_user.email %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path %>
+      <% end %>
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
